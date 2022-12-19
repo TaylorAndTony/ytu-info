@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>非官方的 YTU 官方信息源</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.45/vue.global.prod.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <div id="app">
+        <!-- top big information area -->
+        <div id="header">
+            <div id="big-font">烟台大学信息聚合站</div>
+            <div id="foot">为了消息 | 为了真实 | 为了更快一步 | 为了打赢信息战</div>
+        </div>
+        <!-- site button rows -->
+        <div class="card-row" id="sites">
+            <!-- each cards -->
+            <div class="site-card" v-for="site in websites" @click="urlopen(site.url)">
+                <!-- card icon -->
+                <div class="card-icon">
+                    <!-- icon image -->
+                    <img class="card-icon-image" :src="site.icon" alt="icon">
+                </div>
+                <!-- card title -->
+                <div class="card-title" :title="site.description">{{ site.name }}</div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./main.js"></script>
 </html>
